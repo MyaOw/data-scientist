@@ -34,6 +34,17 @@ def tabContains(tab,word)
     return compteur
 end
 
+def nbOccurence(tab,word)
+
+    compteur = 0
+
+    tab.each { 
+        |journalist|    
+            compteur += journalist.count word    
+}
+    return compteur
+end
+
 
 
 
@@ -50,6 +61,10 @@ puts "Il y a #{tabContains(journalists,"aude")} Aude dans cette liste"
 
 puts "Combien d'handle contiennent une majuscule ?"
 puts "Il y a #{tabContainsString(journalists, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")} handles contenant une majuscule"
+
+puts "Combien de _ dans tous les pseudos confondus ?"
+puts "Il y a #{tabContainsString(journalists, "_")} pseudos avec un _ et il y a #{nbOccurence(journalists, "_")} _ dans tous les pseudos confondus"
+
 
 
 
