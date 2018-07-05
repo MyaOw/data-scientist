@@ -52,28 +52,47 @@ end
 
 
 
+def charIsEqualTo(caractere,caractereToFind)
+    return (caractere.count caractereToFind) > 0        
+end
+
+def beginByUpcase(tab)
+   
+    compteur = 0
+
+    tab.each { 
+        |journalist| 
+        
+        if charIsEqualTo(journalist[1],"ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+            compteur += 1    
+        end
+    }
+    return compteur
+end    
+
+
 puts "Combien y a t'il de journalistes dans cette liste ?"
-puts "Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
+puts ">>> Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
 
 puts "Combien d'handle contiennent un numéro ?"
-puts "Il y a #{tabContainsString(journalists, "0123456789")} handles contenant un numéro"
+puts ">>> Il y a #{tabContainsString(journalists, "0123456789")} handles contenant un numéro"
 
 puts "Combien de Aude ?"
-puts "Il y a #{tabContains(journalists,"aude")} Aude dans cette liste"
+puts ">>> Il y a #{tabContains(journalists,"aude")} Aude dans cette liste"
+
+puts "Combien commencent par une majuscule ?"
+puts ">>> Il y a #{beginByUpcase(journalists)} pseudos qui commencent par une majuscule"
 
 puts "Combien d'handle contiennent une majuscule ?"
-puts "Il y a #{tabContainsString(journalists, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")} handles contenant une majuscule"
+puts ">>> Il y a #{tabContainsString(journalists, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")} handles contenant une majuscule"
 
 puts "Combien de _ dans tous les pseudos confondus ?"
-puts "Il y a #{tabContainsString(journalists, "_")} pseudos avec un _ et il y a #{nbOccurence(journalists, "_")} _ dans tous les pseudos confondus"
+puts ">>> Il y a #{tabContainsString(journalists, "_")} pseudos avec un _ et il y a #{nbOccurence(journalists, "_")} _ dans tous les pseudos confondus"
 
 puts "Trie ta liste de handle par ordre alphabétique, voulez-vous l'afficher ? (o/n)"
 if gets.chomp == "o"
     puts orderbyAlpha(journalists)
 end
-
-
-
 
 
 
