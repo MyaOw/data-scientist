@@ -45,13 +45,15 @@ def nbOccurence(tab,word)
     return compteur
 end
 
-
+def orderbyAlpha(tab)
+    return tab.sort_by{ |nom| nom.downcase }
+    
+end
 
 
 
 puts "Combien y a t'il de journalistes dans cette liste ?"
 puts "Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
-
 
 puts "Combien d'handle contiennent un numéro ?"
 puts "Il y a #{tabContainsString(journalists, "0123456789")} handles contenant un numéro"
@@ -65,8 +67,10 @@ puts "Il y a #{tabContainsString(journalists, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")} han
 puts "Combien de _ dans tous les pseudos confondus ?"
 puts "Il y a #{tabContainsString(journalists, "_")} pseudos avec un _ et il y a #{nbOccurence(journalists, "_")} _ dans tous les pseudos confondus"
 
-
-
+puts "Trie ta liste de handle par ordre alphabétique, voulez-vous l'afficher ? (o/n)"
+if gets.chomp == "o"
+    puts orderbyAlpha(journalists)
+end
 
 
 
