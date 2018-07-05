@@ -5,8 +5,6 @@ def getSize(tab)
     return tab.length
 end    
 
-puts "Combien y a t'il de journalistes dans cette liste ?"
-puts "Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
 
 
 def hasNumber(tab)
@@ -21,10 +19,34 @@ def hasNumber(tab)
 }
     return compteur
 end
-hasNumber(journalists)
+
+
+def tabContains(tab,word)
+
+    compteur = 0
+
+    tab.each { 
+        |journalist|
+        if (journalist.downcase).include? word.downcase
+            compteur += 1
+        end
+}
+    return compteur
+end
 
 
 
+
+
+puts "Combien y a t'il de journalistes dans cette liste ?"
+puts "Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
+
+
+puts "Combien d'handle contiennent un numéro ?"
+puts "Il y a #{hasNumber(journalists)} handles contenant un numéro"
+
+puts "Combien de Aude ?"
+puts "Il y a #{tabContains(journalists,"aude")} Aude dans cette liste"
 
 
 
