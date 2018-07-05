@@ -7,13 +7,13 @@ end
 
 
 
-def hasNumber(tab)
+def tabContainsString(tab,words)
 
     compteur = 0
 
     tab.each { 
         |journalist|
-        if (journalist.count "0123456789") > 0
+        if (journalist.count words) > 0
             compteur += 1
         end
 }
@@ -43,10 +43,13 @@ puts "Il y a " + getSize(journalists).to_s + " journalistes dans cette liste."
 
 
 puts "Combien d'handle contiennent un numéro ?"
-puts "Il y a #{hasNumber(journalists)} handles contenant un numéro"
+puts "Il y a #{tabContainsString(journalists, "0123456789")} handles contenant un numéro"
 
 puts "Combien de Aude ?"
 puts "Il y a #{tabContains(journalists,"aude")} Aude dans cette liste"
+
+puts "Combien d'handle contiennent une majuscule ?"
+puts "Il y a #{tabContainsString(journalists, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")} handles contenant une majuscule"
 
 
 
